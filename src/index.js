@@ -15,5 +15,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 span.addEventListener("click", () => displayCharacterDetails(character));
                 characterBar.appendChild(span);
             });
-        }
-    );
+
+            const mrCute = characters.find((character) => character.name === "Mr. Cute");
+            if (mrCute) {
+                displayCharacterDetails(mrCute);
+            }
+        });
+
+   
