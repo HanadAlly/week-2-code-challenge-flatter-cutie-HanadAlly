@@ -29,5 +29,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
         nameElement.textContent = character.name;
         imageElement.src = character.image;
+        imageElement.alt = character.name;
         voteCountElement.textContent = character.votes;
-        
+
+        voteForm.dataset.characterId = character.id;
+    }
