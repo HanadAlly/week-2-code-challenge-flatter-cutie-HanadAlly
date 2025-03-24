@@ -22,4 +22,12 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
 
-   
+    function displayCharacterDetails(character) {
+        const nameElement = document.getElementById("name");
+        const imageElement = document.getElementById("image");
+        const voteCountElement = document.getElementById("vote-count");
+
+        nameElement.textContent = character.name;
+        imageElement.src = character.image;
+        voteCountElement.textContent = character.votes;
+        
