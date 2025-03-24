@@ -32,5 +32,21 @@ document.addEventListener("DOMContentLoaded", () => {
         imageElement.alt = character.name;
         voteCountElement.textContent = character.votes;
 
-        voteForm.dataset.characterId = character.id;
+        voteForm.onsubmit = (event) => {
+            event.preventDefault();
+            const votesInput = document.getElementById("votes");
+            const additionalVotes = parseInt(votesInput.value, 10);
+            if (!isNaN(additionalVotes)) {
+                character.votes += additionalVotes;
+                voteCountElement.textContent = character.votes;
+
+                fetch(`http://localhost:3000/characters/${character.id}`, {
+                    method: "PATCH",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({ votes: character.votes }),
+                });
+            }
+        }
     }
