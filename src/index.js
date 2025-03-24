@@ -55,7 +55,6 @@ document.addEventListener("DOMContentLoaded", () => {
             character.votes = 0;
             voteCountElement.textContent = character.votes;
 
-
             fetch(`http://localhost:3000/characters/${character.id}`, {
                 method: "PATCH",
                 headers: {
